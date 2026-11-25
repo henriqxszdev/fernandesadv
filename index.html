@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fernandes & Rodrigues Advogados — Excelência Jurídica</title>
+<meta name="description" content="Soluções jurídicas com excelência em Direito Bancário, Criminal e Consumerista. Fernandes & Rodrigues Advogados Associados, em São Paulo.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0a0a0a;
+  --white:#ffffff;
+  --g2:#6b6b6b;
+  --g3:#d9d9d9;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--sans);color:var(--black);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.container{width:min(1200px,92%);margin-inline:auto}
+section{position:relative;padding:110px 0}
+
+.dark{background:var(--black);color:var(--white)}
+.light{background:var(--white);color:var(--black)}
+.dark .muted{color:#a8a8a8}
+.light .muted{color:var(--g2)}
+
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;font-weight:500;margin-bottom:22px}
+.eyebrow::before{content:"";width:42px;height:1px;background:currentColor}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;letter-spacing:-.01em}
+h2{font-size:clamp(2.2rem,4.5vw,3.6rem);margin-bottom:22px}
+.lead{font-size:1.05rem;max-width:640px}
+.head{margin-bottom:60px}
+.head.center{text-align:center}
+.head.center .lead{margin-inline:auto}
+.head.center .eyebrow::after{content:"";width:42px;height:1px;background:currentColor}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;border:1px solid transparent;transition:.35s var(--ease)}
+.btn svg{width:16px;height:16px;transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translateX(5px)}
+.dark .btn-primary{background:var(--white);color:var(--black)}
+.dark .btn-primary:hover{background:transparent;color:var(--white);border-color:var(--white)}
+.dark .btn-outline{border-color:rgba(255,255,255,.5);color:var(--white)}
+.dark .btn-outline:hover{background:var(--white);color:var(--black)}
+.light .btn-primary{background:var(--black);color:var(--white)}
+.light .btn-primary:hover{background:transparent;color:var(--black);border-color:var(--black)}
+
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;padding:22px 0;transition:.4s var(--ease);color:var(--white)}
+.nav.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(12px);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.nav .container{display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:46px;height:46px;border:1px solid var(--white);display:grid;place-items:center;font-family:var(--serif);font-size:1.45rem;font-weight:700;letter-spacing:-.02em}
+.logo-text{font-family:var(--serif);font-size:1.15rem;font-weight:600;line-height:1.05;letter-spacing:.02em}
+.logo-text small{display:block;font-family:var(--sans);font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;font-weight:400;opacity:.7;margin-top:3px}
+.menu{display:flex;gap:34px}
+.menu a{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;position:relative;padding:6px 0;opacity:.85;transition:.3s}
+.menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--white);transition:width .35s var(--ease)}
+.menu a:hover,.menu a.active{opacity:1}
+.menu a:hover::after,.menu a.active::after{width:100%}
+.nav-cta{padding:12px 24px;border:1px solid var(--white);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;transition:.3s}
+.nav-cta:hover{background:var(--white);color:var(--black)}
+.burger{display:none;width:28px;height:20px;position:relative}
+.burger span{position:absolute;left:0;width:100%;height:1.5px;background:var(--white);transition:.3s}
+.burger span:nth-child(1){top:0}.burger span:nth-child(2){top:9px}.burger span:nth-child(3){top:18px}
+.burger.open span:nth-child(1){top:9px;transform:rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){top:9px;transform:rotate(-45deg)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 220px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:#000 center/cover no-repeat;filter:grayscale(1) contrast(1.05)}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.72) 55%,rgba(0,0,0,.45) 100%)}
+.hero .container{position:relative;z-index:2}
+.hero-content{max-width:780px}
+.hero h1{font-size:clamp(2.8rem,7vw,5.6rem);margin-bottom:28px;font-weight:600}
+.hero h1 em{font-style:italic;font-weight:500;display:block}
+.hero p.lead{color:#cfcfcf;font-size:1.15rem;margin-bottom:42px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:16px}
+.stats{position:absolute;left:0;right:0;bottom:0;z-index:2;border-top:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.stats .container{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{padding:38px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.15)}
+.stat:last-child{border-right:0}
+.stat strong{display:block;font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.8rem);font-weight:600;line-height:1}
+.stat span.l{display:block;margin-top:10px;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#a8a8a8}
+.scroll-ind{position:absolute;right:4%;bottom:190px;z-index:2;writing-mode:vertical-rl;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;display:flex;align-items:center;gap:14px;color:#bbb}
+.scroll-ind::after{content:"";width:1px;height:60px;background:linear-gradient(#fff,transparent);animation:drip 2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* SOBRE */
+.about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:80px;align-items:center}
+.about-text p{margin-bottom:22px;font-size:1.05rem}
+.about-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;margin:30px 0 36px}
+.about-list li{display:flex;align-items:center;gap:12px;font-size:.92rem;font-weight:500}
+.about-list li::before{content:"";width:7px;height:7px;background:var(--black);flex:none}
+.about-img{position:relative}
+.about-img::before{content:"";position:absolute;top:28px;left:-28px;right:28px;bottom:-28px;border:1px solid var(--black);z-index:0}
+.badge{position:absolute;z-index:2;left:-30px;bottom:50px;background:var(--black);color:var(--white);padding:26px 30px;text-align:center}
+.badge strong{display:block;font-family:var(--serif);font-size:2.8rem;line-height:1}
+.badge span{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase}
+
+/* ESTRUTURA */
+.track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;padding-bottom:6px}
+.track::-webkit-scrollbar{display:none}
+.track.drag{cursor:grabbing;scroll-snap-type:none}
+.slide{flex:0 0 min(560px,82vw);aspect-ratio:16/10;scroll-snap-align:start;position:relative;overflow:hidden;user-select:none}
+.slide img,.member .ph img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
+.slide figcaption{position:absolute;inset:auto 0 0 0;padding:70px 26px 22px;background:linear-gradient(transparent,rgba(0,0,0,.9));display:flex;justify-content:space-between;align-items:flex-end}
+.slide figcaption h3{font-size:1.5rem}
+.slide figcaption span{font-size:.72rem;letter-spacing:.2em;color:#bbb}
+.car-ctrl{display:flex;align-items:center;justify-content:space-between;margin-top:36px;gap:20px}
+.progress{flex:1;height:1px;background:rgba(255,255,255,.2);position:relative}
+.progress i{position:absolute;left:0;top:-1px;height:3px;background:var(--white);width:50%;transition:width .3s}
+.arrows{display:flex;gap:10px}
+.arrows button{width:52px;height:52px;border:1px solid rgba(255,255,255,.4);display:grid;place-items:center;transition:.3s}
+.arrows button:hover{background:var(--white);color:var(--black)}
+.arrows svg{width:18px;height:18px}
+.count{font-family:var(--serif);font-size:1.3rem;min-width:80px}
+
+/* EQUIPE */
+.team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,340px));justify-content:center;gap:28px}
+.member .ph{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--g3)}
+.member .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.55));opacity:0;transition:.4s}
+.member:hover .ph::after{opacity:1}
+.member .info{padding:20px 0 18px;border-bottom:1px solid var(--g3);position:relative}
+.member .info::after{content:"";position:absolute;left:0;bottom:-1px;width:0;height:2px;background:var(--black);transition:width .5s var(--ease)}
+.member:hover .info::after{width:100%}
+.member h3{font-size:1.5rem;margin-bottom:4px}
+.member p{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g2)}
+.member.partner p{color:var(--black);font-weight:600}
+
+/* SERVIÇOS */
+.svc-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18)}
+.svc{grid-column:span 2;background:var(--black);padding:46px 36px;position:relative;overflow:hidden}
+.svc::before{content:"";position:absolute;inset:0;background:var(--white);transform:translateY(101%);transition:transform .55s var(--ease);z-index:0}
+.svc:hover::before{transform:none}
+.svc>*{position:relative;z-index:1;transition:color .4s}
+.svc:hover{color:var(--black)}
+.svc:hover p{color:#444}
+.svc:hover .num{color:#666}
+.svc .num{font-family:var(--serif);font-size:1rem;letter-spacing:.2em;color:#888;margin-bottom:34px;display:block}
+.svc .ico{width:54px;height:54px;margin-bottom:26px}
+.svc .ico svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-size:1.75rem;margin-bottom:14px}
+.svc p{font-size:.95rem;color:#a8a8a8}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start}
+.faq-side{position:sticky;top:120px}
+.faq-list{border-top:1px solid var(--black)}
+.faq-item{border-bottom:1px solid var(--g3)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;text-align:left;padding:28px 0;font-family:var(--serif);font-size:1.45rem;font-weight:600;line-height:1.25}
+.faq-q .pm{flex:none;width:36px;height:36px;border:1px solid var(--black);position:relative;transition:.35s}
+.faq-q .pm::before,.faq-q .pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:currentColor;transform:translate(-50%,-50%);transition:.35s}
+.faq-q .pm::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq-item.open .pm{background:var(--black);color:var(--white)}
+.faq-item.open .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
+.faq-a p{padding:0 56px 28px 0;color:var(--g2)}
+
+/* CTA */
+.cta{padding:150px 0;text-align:center;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background:#000 center/cover no-repeat;filter:grayscale(1)}
+.cta::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.82);z-index:1}
+.cta .container{position:relative;z-index:2;max-width:820px}
+.cta .eyebrow::after{content:"";width:42px;height:1px;background:currentColor}
+.cta h2{font-size:clamp(2.6rem,6vw,4.8rem)}
+.cta p{color:#ccc;font-size:1.1rem;margin:0 auto 42px;max-width:560px}
+
+/* CONTATO */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
+.c-list li{display:flex;gap:22px;padding:26px 0;border-bottom:1px solid var(--g3)}
+.c-list li:first-child{border-top:1px solid var(--black)}
+.c-ico{flex:none;width:50px;height:50px;background:var(--black);color:var(--white);display:grid;place-items:center}
+.c-ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.c-list small{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--g2);margin-bottom:4px}
+.c-list strong{font-weight:500;font-size:1.05rem}
+.c-list a:hover{text-decoration:underline}
+.map{position:relative;aspect-ratio:1/1.05;background:var(--g3);overflow:hidden}
+.map iframe{width:100%;height:100%;border:0}
+
+/* FOOTER */
+footer{background:var(--black);color:var(--white);padding:90px 0 0;border-top:1px solid #222}
+.f-grid{display:grid;grid-template-columns:1.5fr 1fr 1.3fr;gap:70px;padding-bottom:70px}
+.f-grid p{color:#a8a8a8;font-size:.95rem;margin:22px 0 18px;max-width:340px}
+.f-grid .oab{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#777}
+.f-grid h4{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;margin-bottom:26px;font-weight:500}
+.f-grid li{margin-bottom:12px;color:#a8a8a8;font-size:.95rem}
+.f-grid li a{transition:.3s}
+.f-grid li a:hover{color:var(--white);padding-left:6px}
+.social{display:flex;gap:10px;margin-top:26px}
+.social a{width:42px;height:42px;border:1px solid #444;display:grid;place-items:center;transition:.3s}
+.social a:hover{background:var(--white);color:var(--black)}
+.social svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.f-bottom{border-top:1px solid #222;padding:26px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.8rem;color:#777}
+.f-bottom nav{display:flex;gap:24px}
+.f-bottom a:hover{color:var(--white)}
+
+/* WHATSAPP */
+.wa{position:fixed;right:24px;bottom:24px;z-index:90;width:62px;height:62px;border-radius:50%;background:var(--white);color:var(--black);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.35);border:1px solid var(--black);transition:.3s}
+.wa:hover{background:var(--black);color:var(--white);border-color:var(--white);transform:scale(1.08)}
+.wa::before{content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid var(--white);animation:ping 2.2s infinite}
+@keyframes ping{from{transform:scale(1);opacity:.8}to{transform:scale(1.6);opacity:0}}
+.wa svg{width:28px;height:28px;fill:currentColor}
+
+/* RESPONSIVO */
+@media(max-width:1020px){
+  .about-grid,.faq-grid,.contact-grid{grid-template-columns:1fr;gap:60px}
+  .faq-side{position:static}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .svc{grid-column:span 1}
+  .svc:nth-child(3){grid-column:span 2}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .about-img{margin:0 20px 0 28px}
+  .scroll-ind{display:none}
+}
+@media(max-width:860px){
+  .burger{display:block;z-index:2}
+  .nav-cta{display:none}
+  .menu{position:fixed;inset:0;background:var(--black);flex-direction:column;justify-content:center;align-items:center;gap:30px;transform:translateX(100%);transition:transform .5s var(--ease)}
+  .menu.open{transform:none}
+  .menu a{font-size:1.1rem}
+}
+@media(max-width:640px){
+  section{padding:80px 0}
+  .hero{padding-bottom:300px}
+  .team-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .member h3{font-size:1.2rem}
+  .svc-grid{grid-template-columns:1fr}
+  .svc:nth-child(3){grid-column:span 1}
+  .stats .container{grid-template-columns:repeat(3,1fr)}
+  .stat{padding:22px 6px}
+  .stat span.l{font-size:.58rem;letter-spacing:.12em}
+  .about-list{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr;gap:44px}
+  .badge{left:-10px}
+  .faq-q{font-size:1.2rem}
+  .faq-a p{padding-right:0}
+  .f-bottom{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container">
+    <a href="#inicio" class="logo" aria-label="Fernandes & Rodrigues Advogados">
+      <span class="logo-mark">F&amp;R</span>
+      <span class="logo-text">Fernandes &amp; Rodrigues<small>Advogados Associados</small></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="nav-cta" href="" target="_blank" rel="noopener">Fale conosco</a>
+    <button class="burger" id="burger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<!-- HERO · preto -->
+<section class="hero dark" id="inicio">
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80')"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow reveal">Fernandes &amp; Rodrigues Advogados</span>
+      <h1 class="reveal d1">Advocacia Moderna, <em>com Resultados Reais</em></h1>
+      <p class="lead reveal d2">Unimos tradição, tecnologia e expertise jurídica para oferecer defesa criminal estratégica, atuação ágil e proteção dos direitos e garantias fundamentais em todas as etapas do processo penal.</p>
+      <div class="hero-actions reveal d3">
+        <a class="btn btn-primary" href="" target="_blank" rel="noopener">Fale Conosco
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-outline" href="#servicos">Nossas áreas</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-ind">Role</div>
+  <div class="stats">
+    <div class="container">
+      <div class="stat"><strong data-count="2">0</strong><span class="l">Anos de atuação</span></div>
+      <div class="stat"><strong data-count="1">0</strong><span class="l">Unidade</span></div>
+      <div class="stat"><strong data-count="2">0</strong><span class="l">Especialistas</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE · branco -->
+<section class="light" id="sobre">
+  <div class="container about-grid">
+    <div class="about-text">
+      <span class="eyebrow reveal">Sobre nós</span>
+      <h2 class="reveal d1">Compromisso com a Justiça, Excelência na Advocacia</h2>
+      <p class="muted reveal d2">Com 2 anos de atuação, a Fernandes &amp; Rodrigues Advogados Associados é referência em soluções jurídicas eficientes e personalizadas. Com escritório em São Paulo, nossa equipe alia conhecimento técnico, ética e tecnologia para oferecer atendimento estratégico nas áreas Criminal, Consumerista e Bancária.</p>
+      <ul class="about-list reveal d2">
+        <li>Atendimento humanizado</li><li>Atuação estratégica</li>
+        <li>Ética e transparência</li><li>Tecnologia e agilidade</li>
+      </ul>
+      <a class="btn btn-primary reveal d3" href="#servicos">Conheça as áreas
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="about-img reveal d2">
+      <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80" alt="Recepção do escritório Fernandes & Rodrigues Advogados Associados" loading="lazy">
+      <div class="badge"><strong>2</strong><span>Anos de história</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTRUTURA · preto -->
+<section class="dark" id="estrutura">
+  <div class="container head">
+    <span class="eyebrow reveal">Nossa estrutura</span>
+    <h2 class="reveal d1">Um ambiente pensado para a excelência jurídica</h2>
+    <p class="lead muted reveal d2">Conheça o escritório Fernandes &amp; Rodrigues: arraste, deslize ou deixe rolar — cada ambiente é projetado para oferecer o melhor atendimento.</p>
+  </div>
+  <div class="container reveal">
+    <div class="track" id="track">
+      <figure class="slide">
+        <img src="snapinsta-1795635010674.jpg"
+             alt="Recepção do escritório" loading="lazy" draggable="false">
+        <figcaption><h3>Recepção</h3><span>01 / 02</span></figcaption>
+      </figure>
+      <figure class="slide">
+        <img src="snapinsta-1795635016281.jpg"
+             alt="Sala de reuniões do escritório" loading="lazy" draggable="false">
+        <figcaption><h3>Sala de Reuniões</h3><span>02 / 02</span></figcaption>
+      </figure>
+    </div>
+    <div class="car-ctrl">
+      <span class="count" id="count">01 / 02</span>
+      <div class="progress"><i id="bar"></i></div>
+      <div class="arrows">
+        <button id="prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+        <button id="next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPE · branco -->
+<section class="light" id="equipe">
+  <div class="container">
+    <div class="head center">
+      <span class="eyebrow reveal">Equipe</span>
+      <h2 class="reveal d1">Nosso time de especialistas</h2>
+      <p class="lead muted reveal d2">Contamos com advogados altamente qualificados e dedicados, com vasta experiência nas áreas Bancária, Criminal e Consumerista.</p>
+    </div>
+    <div class="team-grid" id="team">
+      <article class="member partner">
+        <div class="ph">
+          <!-- Troque o endereço do src pela imagem do primeiro advogado -->
+          <img src="IMG_2956.JPG"
+               alt="Júnior Pinheiro" loading="lazy">
+        </div>
+        <div class="info">
+          <h3>Jonathan Rodrigues</h3>
+          <p>Sócio - Diretor</p>
+        </div>
+      </article>
+
+      <article class="member partner">
+        <div class="ph">
+          <img src="IMG_2957.JPG"
+               alt="Antônio Carlos" loading="lazy">
+        </div>
+        <div class="info">
+          <h3>Filipe Fernandes</h3>
+          <p>Sócio</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS · preto -->
+<section class="dark" id="servicos">
+  <div class="container">
+    <div class="head center">
+      <span class="eyebrow reveal">Serviços</span>
+      <h2 class="reveal d1">Atuação Jurídica Estratégica</h2>
+      <p class="lead muted reveal d2">Oferecemos soluções jurídicas completas e personalizadas nas principais áreas do Direito, sempre com foco em eficiência, inovação e segurança jurídica para pessoas físicas, empresas e instituições públicas.</p>
+    </div>
+    <div class="svc-grid reveal">
+      <article class="svc">
+        <span class="num">01</span>
+        <div class="ico"><svg viewBox="0 0 48 48"><path d="M6 40h36M10 40V20M20 40V20M28 40V20M38 40V20M4 20h40L24 7z"/></svg></div>
+        <h3>Direito Bancário</h3>
+        <p>Atuação especializada em fraudes bancárias, cobranças indevidas, revisão de contratos, juros abusivos e defesa dos direitos dos consumidores diante de instituições financeiras.</p>
+      </article>
+      <article class="svc">
+        <span class="num">02</span>
+        <div class="ico"><svg viewBox="0 0 48 48"><path d="M24 6v36M14 42h20M8 14h32M8 14l-5 14a6 6 0 0 0 10 0zM40 14l-5 14a6 6 0 0 0 10 0z"/></svg></div>
+        <h3>Direito Criminal</h3>
+        <p>Defesa técnica e estratégica em investigações criminais, inquéritos policiais e ações penais, com atuação pautada na proteção dos direitos e garantias fundamentais em todas as etapas do processo.</p>
+      </article>
+      <article class="svc">
+        <span class="num">03</span>
+        <div class="ico"><svg viewBox="0 0 48 48"><rect x="6" y="15" width="36" height="25" rx="2"/><path d="M17 15V9h14v6M6 26h36"/></svg></div>
+        <h3>Direito Consumerista</h3>
+        <p>Proteção dos direitos do consumidor em casos de cobranças indevidas, produtos e serviços defeituosos, negativação irregular e práticas abusivas, buscando soluções jurídicas eficazes para cada situação.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ · branco -->
+<section class="light" id="faq">
+  <div class="container faq-grid">
+    <div class="faq-side">
+      <span class="eyebrow reveal">FAQ</span>
+      <h2 class="reveal d1">Perguntas Frequentes</h2>
+      <p class="muted reveal d2" style="margin-bottom:30px">Reunimos as dúvidas mais comuns de nossos clientes. Não encontrou a sua? Fale com nossa equipe.</p>
+      <a class="btn btn-primary reveal d3" href="#contato">Falar com a equipe</a>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <button class="faq-q">Quais áreas do Direito o escritório atende?<span class="pm"></span></button>
+        <div class="faq-a"><p>Atuamos nas áreas de Direito Bancário, Criminal e Consumerista, oferecendo consultoria e atuação judicial em cada uma delas.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Como posso agendar uma consulta?<span class="pm"></span></button>
+        <div class="faq-a"><p>Você pode agendar pelo WhatsApp, telefone ou e-mail, ou comparecer ao nosso escritório, de segunda a sexta, das 08h às 18h.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">O atendimento pode ser feito de forma online?<span class="pm"></span></button>
+        <div class="faq-a"><p>Sim. Realizamos atendimentos por videochamada e WhatsApp, com a mesma qualidade e sigilo do atendimento presencial.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">O escritório atende clientes de outros estados?<span class="pm"></span></button>
+        <div class="faq-a"><p>Sim. Prestamos consultoria e assessoria jurídica a clientes de outros estados, com acompanhamento remoto e atuação estratégica conforme cada caso.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA · preto -->
+<section class="cta dark">
+  <div class="cta-bg" style="background-image:url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80')"></div>
+  <div class="container">
+    <span class="eyebrow reveal">Estamos prontos para ouvir você</span>
+    <h2 class="reveal d1">Fale com um advogado hoje</h2>
+    <p class="reveal d2">Agende uma análise inicial confidencial com nossa equipe e descubra o melhor caminho para o seu caso.</p>
+    <a class="btn btn-primary reveal d3" href="" target="_blank" rel="noopener">Falar com um Advogado
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- CONTATO · branco -->
+<section class="light" id="contato">
+  <div class="container contact-grid">
+    <div>
+      <span class="eyebrow reveal">Contato</span>
+      <h2 class="reveal d1">Vamos conversar sobre o seu caso.</h2>
+      <ul class="c-list reveal d2">
+        <li><span class="c-ico"><svg viewBox="0 0 24 24"><path d="M3 21l1.6-5A8.5 8.5 0 1 1 8 19.4z"/></svg></span><div><small>WhatsApp</small><strong><a href="https://wa.me/" target="_blank" rel="noopener"></a> · <a href="https://wa.me/" target="_blank" rel="noopener">(88) 99625-4657</a></strong></div></li>
+        <li><span class="c-ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg></span><div><small>E-mail</small><strong><a href="mailto:ff@fernandess.adv.br">fernandeserodrigues@adv.br</a></strong></div></li>
+        <li><span class="c-ico"><svg viewBox="0 0 24 24"><path d="M12 21s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><small>Endereço</small><strong>São Paulo/SP</strong></div></li>
+        <li><span class="c-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><small>Atendimento</small><strong>Seg a Sex • 08h às 18h</strong></div></li>
+      </ul>
+    </div>
+    <div class="map reveal d2">
+  <iframe title="Localização do escritório" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+    src="https://www.google.com/maps?q=S%C3%A3o+Paulo,+SP&output=embed"></iframe>
+</div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER · preto -->
+<footer>
+  <div class="container f-grid">
+    <div>
+      <a href="#inicio" class="logo"><span class="logo-mark">F&amp;R</span><span class="logo-text">Fernandes &amp; Rodrigues<small>Advogados Associados</small></span></a>
+      <p>Advocacia de excelência, com atendimento humanizado e atuação estratégica em Direito Bancário, Criminal e Consumerista.</p>
+      <span class="oab">OAB/SP • Sociedade de Advogados</span>
+      <div class="social">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="#inicio">Início</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#servicos">Serviços</a></li>
+        <li><a href="#equipe">Equipe</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <ul>
+        <li>São Paulo/SP</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container f-bottom">
+    <span>© 2026 Fernandes &amp; Rodrigues Advogados Associados. Todos os direitos reservados.</span>
+    <nav><a href="#">Política de Privacidade</a><a href="#">LGPD</a><a href="#">Termos</a></nav>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.400-1.700a11.900 11.900 0 0 0 5.600 1.400c6.600 0 11.900-5.300 11.900-11.900 0-3.200-1.200-6.200-3.400-8.300zM12 21.700c-1.800 0-3.500-.5-5-1.400l-.4-.2-3.800 1 1-3.700-.2-.4a9.800 9.800 0 0 1-1.500-5.200C2.100 6.500 6.500 2.100 12 2.100c2.600 0 5.100 1 6.900 2.900a9.700 9.700 0 0 1 2.900 6.900c0 5.400-4.400 9.800-9.800 9.800zm5.400-7.300c-.3-.1-1.700-.8-2-.9-.3-.1-.5-.1-.7.1l-.9 1.100c-.2.200-.3.200-.6.100a8 8 0 0 1-4-3.500c-.3-.5.3-.5.900-1.600.1-.2 0-.4 0-.5l-.9-2.200c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400-.3.300-1 1-1 2.400s1 2.800 1.200 3c.1.200 2 3.100 4.900 4.300 1.800.8 2.500.8 3.400.7.600-.1 1.700-.7 2-1.400.2-.7.200-1.200.2-1.400-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+/* Utilitário para formatar números */
+const pad = n => String(n).padStart(2, '0');
+
+/* Fallback caso alguma foto não carregue */
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('error', () => {
+    img.removeAttribute('src');
+    img.style.background = 'linear-gradient(135deg, #222, #777)';
+  });
+});
+
+/* Navegação */
+const nav = document.getElementById('nav');
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+
+addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', scrollY > 40);
+}, { passive: true });
+
+burger.onclick = () => {
+  burger.classList.toggle('open');
+  menu.classList.toggle('open');
+};
+
+const links = [...menu.querySelectorAll('a')];
+
+links.forEach(a => {
+  a.onclick = () => {
+    burger.classList.remove('open');
+    menu.classList.remove('open');
+  };
+});
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      links.forEach(link => {
+        link.classList.toggle(
+          'active',
+          link.getAttribute('href') === '#' + entry.target.id
+        );
+      });
+    }
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+
+links.forEach(link => {
+  const section = document.querySelector(link.getAttribute('href'));
+  if (section) spy.observe(section);
+});
+
+/* Animações ao rolar a página */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => {
+  revealObserver.observe(el);
+});
+
+/* Contadores */
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+
+    const el = entry.target;
+    const target = Number(el.dataset.count);
+    const startTime = performance.now();
+
+    const animate = time => {
+      const progress = Math.min((time - startTime) / 1600, 1);
+      el.textContent = Math.round(
+        target * (1 - Math.pow(1 - progress, 3))
+      );
+
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+
+    requestAnimationFrame(animate);
+    counterObserver.unobserve(el);
+  });
+}, { threshold: 0.6 });
+
+document.querySelectorAll('[data-count]').forEach(el => {
+  counterObserver.observe(el);
+});
+
+/* Carrossel da estrutura: as imagens e os textos ficam no HTML */
+const track = document.getElementById('track');
+const slides = [...track.children];
+const count = document.getElementById('count');
+const bar = document.getElementById('bar');
+
+let index = 0;
+let autoPlay;
+
+const goToSlide = i => {
+  index = (i + slides.length) % slides.length;
+  track.scrollTo({
+    left: slides[index].offsetLeft - track.offsetLeft,
+    behavior: 'smooth'
+  });
+};
+
+const syncCarousel = () => {
+  const x = track.scrollLeft;
+  let closest = 0;
+  let minDistance = Infinity;
+
+  slides.forEach((slide, i) => {
+    const distance = Math.abs(slide.offsetLeft - track.offsetLeft - x);
+    if (distance < minDistance) {
+      minDistance = distance;
+      closest = i;
+    }
+  });
+
+  index = closest;
+  count.textContent = `${pad(closest + 1)} / ${pad(slides.length)}`;
+
+  const maxScroll = track.scrollWidth - track.clientWidth;
+  bar.style.width = (
+    100 / slides.length +
+    (maxScroll ? x / maxScroll : 0) * (100 - 100 / slides.length)
+  ) + '%';
+};
+
+track.addEventListener('scroll', syncCarousel, { passive: true });
+
+const restartAutoPlay = () => {
+  clearInterval(autoPlay);
+  autoPlay = setInterval(() => goToSlide(index + 1), 4500);
+};
+
+document.getElementById('next').onclick = () => {
+  goToSlide(index + 1);
+  restartAutoPlay();
+};
+
+document.getElementById('prev').onclick = () => {
+  goToSlide(index - 1);
+  restartAutoPlay();
+};
+
+track.addEventListener('mouseenter', () => clearInterval(autoPlay));
+track.addEventListener('mouseleave', restartAutoPlay);
+
+if (slides.length > 1) restartAutoPlay();
+
+/* Arrastar o carrossel com o mouse */
+let dragging = false;
+let startX = 0;
+let startScroll = 0;
+
+track.addEventListener('pointerdown', event => {
+  if (event.pointerType === 'touch') return;
+
+  dragging = true;
+  startX = event.clientX;
+  startScroll = track.scrollLeft;
+  track.classList.add('drag');
+});
+
+addEventListener('pointermove', event => {
+  if (dragging) {
+    track.scrollLeft = startScroll - (event.clientX - startX);
+  }
+});
+
+addEventListener('pointerup', () => {
+  if (!dragging) return;
+
+  dragging = false;
+  track.classList.remove('drag');
+  goToSlide(index);
+});
+
+/* Perguntas frequentes */
+document.querySelectorAll('.faq-item').forEach(item => {
+  const answer = item.querySelector('.faq-a');
+
+  if (item.classList.contains('open')) {
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+
+  item.querySelector('.faq-q').onclick = () => {
+    const wasOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-a').style.maxHeight = 0;
+    });
+
+    if (!wasOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  };
+});
+</script>
+</body>
+</html>
